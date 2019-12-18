@@ -11,6 +11,7 @@ const app = express();
 // app.'s
 app.set('view engine', 'ejs');
 app.use(express.static('styles'));
+app.use(express.urlencoded({extended: true}));
 
 
 // function to handle errors
@@ -35,7 +36,7 @@ console.log(errors);
 app.get('/', (req, res) => {
   superagent.get(`https://www.googleapis.com/books/v1/volumes/?q=${'star wars'}`)
     .then(book => {
-      // console.log(book);
+      console.log(book.body.items);
       res.render('index', { books: book.body.items });
     });
 

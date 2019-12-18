@@ -10,14 +10,29 @@
 </head>
 
 <body>
+
+  <header>
+    <nav id="navbar">
+      <form action="/" method="GET">
+        <button type="submit" id="showButton">Home</button>
+      </form>
+    </nav>
+  </header>
+
+
   <h1>Now We're Bookin'</h1>
 
+
   <main>
-    <div id="searchResults2">
+    <div id="searchResults">
       <% books.forEach(book => { %>
+      <img src="<%= book.volumeInfo.imageLinks %>" alt="<%= book.volumeInfo.title %>">
       <h2><%= book.volumeInfo.title %></h2>
+      <h4>Catagory: <%= book.volumeInfo.catagory %></h4>
       <h5>Written by <%= book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'unknown' %></h5>
-      <% }) %>
+      <h5>Summery: <%= book.volumeInfo.description %></h4>
+        <h6>ISBN: <%= book.volumeInfo.isbn %></h4>
+          <% }) %>
     </div>
   </main>
 

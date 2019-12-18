@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <h1>Now We're Bookin'</h1>
+  <h1>Books Babyyyyy</h1>
   <section id="formBox">
     <h2 id="boxTitle">Enter your query below.</h2>
     <form action="/" method="POST">
@@ -19,15 +19,19 @@
       <input class="inputQueryHere" type="radio" name="title" value="title">
       <label for="author">Author</label>
       <input class="inputQueryHere" type="radio" name="author" value="author">
-      <button type="submit" id="button">Search</button>
+      <button type="submit" id="indexButton">Search</button>
     </form>
   </section>
   <main>
     <div id="searchResults">
       <% books.forEach(book => { %>
+      <img src="<%= book.volumeInfo.imageLinks %>" alt="<%= book.volumeInfo.title %>">
       <h2><%= book.volumeInfo.title %></h2>
+      <h4>Catagory: <%= book.volumeInfo.catagory %></h4>
       <h5>Written by <%= book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'unknown' %></h5>
-      <% }) %>
+      <h5>Summery: <%= book.volumeInfo.description %></h4>
+        <h6>ISBN: <%= book.volumeInfo.isbn %></h4>
+          <% }) %>
     </div>
   </main>
 
