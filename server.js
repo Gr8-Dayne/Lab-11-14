@@ -6,7 +6,9 @@ const express = require('express');
 const superagent = require('superagent');
 const app = express();
 
+
 // const books = [];
+
 
 // app.'s
 app.set('view engine', 'ejs');
@@ -16,20 +18,12 @@ app.use(express.urlencoded({extended: true}));
 
 // function to handle errors
 function errors(error, response) {
-  console.error(error);
+  // console.error(error);
   response.render('error');
 }
 
+
 console.log(errors);
-
-
-// constructor
-// function BookObject(book) {
-//   this.title = book.volumeInfo.title
-//   this.authors = book.volumeInfo.authors
-//   this.description = book.volumeInfo.description
-//   console.log(this)
-// }
 
 
 // When page is inittially displayed:
