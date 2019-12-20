@@ -17,7 +17,6 @@ Express, EJS, Heroku, Superagent and PG
 ## Change Log
 
 ## Credits and Collaborations
-
-
+Much inspiration came from class demos and TA's assistance.
 
 -->

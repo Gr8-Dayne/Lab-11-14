@@ -10,24 +10,30 @@
 </head>
 
 <body>
-  <h1>Now We're Bookin'</h1>
+  <h1>Books Babyyyyy</h1>
   <section id="formBox">
     <h2 id="boxTitle">Enter your query below.</h2>
-    <form action="/" method="POST">
-      <input class="inputQueryHere" type="text" name="query" placeholder="title/author">
-      <label for="title">Title</label>
-      <input class="inputQueryHere" type="radio" name="title" value="title">
-      <label for="author">Author</label>
+    <form action="/show" method="POST">
+      <label for="title">Title
+        <input class="inputQueryHere" type="text" name="query" placeholder="title/author">
+      </label>
+      <label for="author">T
+        <input class="inputQueryHere" type="radio" name="title" value="title">
+      </label>
       <input class="inputQueryHere" type="radio" name="author" value="author">
-      <button type="submit" id="button">Search</button>
+      <button type="submit" id="indexButton" action="/show">Search</button>
     </form>
   </section>
   <main>
     <div id="searchResults">
       <% books.forEach(book => { %>
+      <img src="<%= book.volumeInfo.previewLink %>" alt="<%= book.volumeInfo.title %>">
       <h2><%= book.volumeInfo.title %></h2>
+      <h4>Catagory: <%= book.volumeInfo.categories%></h4>
       <h5>Written by <%= book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'unknown' %></h5>
-      <% }) %>
+      <h5>Summery: <%= book.volumeInfo.description %></h4>
+        <h6>ISBN: <%= book.volumeInfo.isbn %></h4>
+          <% }) %>
     </div>
   </main>
 
