@@ -30,7 +30,6 @@ console.log(errors);
 app.get('/', (req, res) => {
   superagent.get(`https://www.googleapis.com/books/v1/volumes/?q=${'star wars'}`)
     .then(book => {
-      console.log(book.body.items);
       res.render('index', { books: book.body.items });
     });
 
@@ -38,18 +37,22 @@ app.get('/', (req, res) => {
 
 
 // If search bar button is hit:
-app.post('/', (req, res) => {
+app.post('/show', (req, res) => {
   superagent.get(`https://www.googleapis.com/books/v1/volumes/?q=${'star trek'}`)
     .then(book => {
-      // console.log(book);
 
+      console.log(book.body.items);
+
+      // console.log(book);
 
       // constructor function
       // function BookObject(title, author, description, img) {
+      //   this.img = 
       //   this.title = book.volumeInfo.title
+      //   this.catagories = book.volumeInfo.categories
       //   this.authors = book.volumeInfo.authors
       //   this.description = book.volumeInfo.description
-      //   this.img = 
+      //   this.isbn = book.volumeInfo.isbn
       //   console.log(this)
       // }
 
